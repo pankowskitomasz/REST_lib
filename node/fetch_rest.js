@@ -89,31 +89,15 @@ function putJSONRequest(linkA,dataA,successA,failA){
 }
 //------------------------------------------------------------
 function deleteRequest(linkA,dataA,successA,failA){
-    fetch(linkA,{
+    fetch(linkA+"?"+dataA,{
         method: 'DELETE',
         mode:'cors',
         headers:{
             'Content-Type':'application/x-www-form-urlencoded'
         },
-        cache: 'default',
-        body:dataA
+        cache: 'default'
     })
     .then((resp)=>resp.text())
-    .then((data)=>successA(dataA))
-    .catch((err)=>failA(err));
-}
-//------------------------------------------------------------
-function deleteJSONRequest(linkA,dataA,successA,failA){
-    fetch(linkA,{
-        method: 'DELETE',
-        mode:'cors',
-        headers:{
-            "Content-Type":"application/json"
-        },
-        cache: 'default',
-        body:JSON.stringify(dataA)
-    })
-    .then((resp)=>resp.json())
     .then((data)=>successA(dataA))
     .catch((err)=>failA(err));
 }
