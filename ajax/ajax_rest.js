@@ -16,7 +16,7 @@ function processStateChange(){
 }
 //------------------------------------------------------------
 function getRequest(requestA,linkA,dataA){
-    requestA.open("GET",linkA+"?"+dataA+"?"+dataA,true);
+    requestA.open("GET",linkA+"?"+dataA,true);
     requestA.send();
 }
 //------------------------------------------------------------
@@ -45,9 +45,9 @@ function putJSONRequest(requestA,linkA,dataA){
 }
 //------------------------------------------------------------
 function deleteRequest(requestA,linkA,dataA){           
-    requestA.open("DELETE",linkA,true);
+    requestA.open("DELETE",linkA+"?"+dataA,true);
     requestA.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    requestA.send(dataA);
+    requestA.send();
 }
 //------------------------------------------------------------
 httpRequest.onreadystatechange = processStateChange;
